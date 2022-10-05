@@ -1,7 +1,7 @@
 {
     "name": "rc-simple-slider",
     "description": "React simple slider component",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "author": "aparasolTree",
     "license": "MIT",
     "main": "dist/index.js",
@@ -15,7 +15,7 @@
     },
     "repository": "aparasolTree/rc-simple-slider",
     "files": [
-        "src"
+        "dist"
     ],
     "scripts": {
         "start": "tsup --watch",

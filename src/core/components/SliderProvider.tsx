@@ -56,7 +56,7 @@ export default function SliderProvider({
 
     const handleMouseDown = (event: MouseEvent | TouchEvent) => {
         if (!ref.current) return;
-        const stepWidth = 100 / (step || 100);
+        const stepWidth = 100 / step;
         const { offsetX, offsetY } = getOffset(event, ref.current!, stepWidth);
         const offset = vertical ? 100 - offsetY : offsetX;
 

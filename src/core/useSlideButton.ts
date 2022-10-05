@@ -43,7 +43,7 @@ export default function useSlideButton({ name }: UseSlideButton) {
     };
 
     React.useEffect(() => {
-        const stepWidth = 100 / (step || 100);
+        const stepWidth = 100 / step;
 
         const handleMove = (event: MouseEvent | TouchEvent) => {
             event.stopPropagation();
@@ -88,10 +88,10 @@ export default function useSlideButton({ name }: UseSlideButton) {
     }, [step, setPosition, vertical, range]);
 
     React.useEffect(() => {
-        const stepWidth = 100 / (step || 100);
+        const stepWidth = 100 / step;
         const set = (number: number) => {
             const p = position.current;
-            const currentStep = round(p[name] / (step || 1));
+            const currentStep = round(p[name] / stepWidth);
             const offset = (currentStep + number) * stepWidth;
             setPosition(offset, name);
         };

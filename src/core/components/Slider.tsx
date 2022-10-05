@@ -7,7 +7,7 @@ import ProgressBar from './ProgressBar';
 import Marks from './Marks';
 
 import type { Disabled, MarksType, Range, SliderBase } from '../types';
-import { isArray, noop, round, debounce as _debounce } from '../../utils';
+import { isArray, noop, round, debounce as _debounce, clamp } from '../../utils';
 
 export interface SliderOptions<R> extends Partial<SliderBase> {
     contentContainerStyle?: React.CSSProperties;
@@ -32,8 +32,8 @@ const format = (step: number, val: number) => {
 export function Slider<R extends number>(options: SliderOptions<number>): JSX.Element;
 export function Slider<R extends [number, number]>(options: SliderOptions<R>): JSX.Element;
 export function Slider<R extends Range>(options: SliderOptions<R> = {}) {
+    const step = clamp(options.step || 100, 1, 100);
     const {
-        step = 0,
         contentContainerStyle = {},
         showTip = false,
         vertical = false,

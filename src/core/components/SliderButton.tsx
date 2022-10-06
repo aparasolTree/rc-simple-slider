@@ -1,10 +1,9 @@
-import React, { KeyboardEvent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import useSlideButton from '../useSlideButton';
 import useTip from '../useTip';
 
 import type { Disabled } from '../types';
-import useLatest from '../../hooks/useLatest';
 
 export type Size = { width: number };
 const Container = styled.div<Size & { vertical?: boolean } & Disabled>`

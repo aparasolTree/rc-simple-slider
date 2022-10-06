@@ -1,6 +1,6 @@
 import React from 'react';
 import useLatest from '../hooks/useLatest';
-import { getOffset, isArray, max, min, round } from '../utils';
+import { clamp, getOffset, isArray, max, min, round } from '../utils';
 import { useSliderContext } from './context';
 
 export interface UseSlideButton {
@@ -92,7 +92,7 @@ export default function useSlideButton({ name }: UseSlideButton) {
         const set = (number: number) => {
             const p = position.current;
             const currentStep = round(p[name] / stepWidth);
-            const offset = (currentStep + number) * stepWidth;
+            const offset = clamp(currentStep + number, 0, 100) * stepWidth;
             setPosition(offset, name);
         };
         const handleKeyDown = (event: Event) => {
